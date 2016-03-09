@@ -15,13 +15,15 @@ defmodule HelloNetwork.Mixfile do
     mod: {HelloNetwork, []},
     applications: [:nerves, :logger,
                    :nerves_networking,
-                   :nerves_ssdp_server]
+                   :nerves_ssdp_server,
+                   :neves_lib]
   ]
 
   defp deps, do: [
     {:nerves, "~> 0.2"},
+    {:nerves_lib, github: "nerves-project/nerves_lib"},
     {:nerves_networking, github: "nerves-project/nerves_io_ethernet", branch: "rename-networking"},
-    {:nerves_ssdp_server, github: "nerves-project/nerves_ssdp_server", branch: "feature-add-to-api"}
+    {:nerves_ssdp_server, github: "nerves-project/nerves_ssdp_server"}
   ]
 
 end
