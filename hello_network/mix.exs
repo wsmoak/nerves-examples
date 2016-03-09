@@ -16,7 +16,7 @@ defmodule HelloNetwork.Mixfile do
     applications: [:nerves, :logger,
                    :nerves_networking,
                    :nerves_ssdp_server,
-                   :neves_lib]
+                   :nerves_lib]
   ]
 
   defp deps, do: [
