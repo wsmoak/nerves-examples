@@ -1,21 +1,22 @@
 defmodule DistributedBlinky.Mixfile do
   use Mix.Project
 
-  @target System.get_env("NERVES_TARGET") || "rpi3"
+  @target System.get_env("NERVES_TARGET") || "rpi2"
   @host_id System.get_env("NERVES_HOST_ID") || "2"
 
   def project do
     [app: :distributed_blinky,
      version: "0.0.1",
+     elixir: "~> 1.2.4 or ~> 1.3",
      target: @target,
      host_id: @host_id,
-     archives: [nerves_bootstrap: "0.1.2"],
+     archives: [nerves_bootstrap: "~> 0.1"],
      deps_path: "deps/#{@target}",
      build_path: "_build/#{@target}",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     aliases: aliases,
-     deps: deps ++ system(@target)]
+     aliases: aliases(),
+     deps: deps() ++ system(@target)]
   end
 
   # Configuration for the OTP application.
@@ -36,7 +37,7 @@ defmodule DistributedBlinky.Mixfile do
   end
 
   def system(target) do
-    [{:"nerves_system_#{target}", ">= 0.0.0"}]
+    [{:"nerves_system_#{target}", "~> 0.5.2"}]
   end
 
   def aliases do
