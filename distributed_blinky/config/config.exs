@@ -5,10 +5,6 @@
 # is restricted to this project.
 use Mix.Config
 
-# Import target specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
-# Uncomment to use target specific configurations
-
 host_id = "#{Mix.Project.config[:host_id]}"
 
 # magic to get initial node list
@@ -28,5 +24,9 @@ config :distributed_blinky, if_eth0: [
   ],
 
   initial_nodes: initial_nodes ++ [:'1@127.0.0.1']
+
+# Import target specific config. This must remain at the bottom
+# of this file so it overrides the configuration defined above.
+# Uncomment to use target specific configurations
 
 import_config "#{Mix.Project.config[:target]}/config.exs"
