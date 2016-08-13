@@ -10,7 +10,7 @@ defmodule DistributedBlinky.Mixfile do
      elixir: "~> 1.2.4 or ~> 1.3",
      target: @target,
      host_id: @host_id,
-     archives: [nerves_bootstrap: "~> 0.1"],
+     archives: [nerves_bootstrap: "~> 0.1.4"],
      deps_path: "deps/#{@target}",
      build_path: "_build/#{@target}",
      build_embedded: Mix.env == :prod,
@@ -30,14 +30,14 @@ defmodule DistributedBlinky.Mixfile do
   def deps do
     [
       {:nerves, "~> 0.3.0"},
-      {:nerves_io_led, github: "nerves-project/nerves_io_led"},
+      {:nerves_leds, github: "nerves-project/nerves_leds"},
       {:nerves_networking, github: "nerves-project/nerves_networking"},
       {:phoenix_pubsub, "~> 1.0.0-rc.0"}
     ]
   end
 
   def system(target) do
-    [{:"nerves_system_#{target}", "~> 0.5.2"}]
+    [{:"nerves_system_#{target}", "~> 0.6.1"}]
   end
 
   def aliases do

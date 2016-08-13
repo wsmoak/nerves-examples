@@ -1,2 +1,2 @@
 use Mix.Config
-config :nerves_io_led, names: [ green: "led0" ]
+config :nerves_leds, names: [ green: "led0" ]

@@ -1,13 +1,11 @@
 defmodule DistributedBlinky.Led do
   @moduledoc false
-  alias Nerves.IO.Led
-
-  @led :green
+  alias Nerves.Leds
 
   def blink_once(ms \\ 1000) do
-    Led.set [{@led, true}]
+    Leds.set green: true
     :timer.sleep ms
-    Led.set [{@led, false}]
+    Leds.set green: false
   end
 
 end
