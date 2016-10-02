@@ -5,14 +5,17 @@
 # is restricted to this project.
 use Mix.Config
 
+ssid = System.get_env("SSID") || raise "Set the SSID env var!"
+psk = System.get_env("PSK") || raise "Set the PSK env var!"
+
+# Change these options to your
+config :hello_wifi, :wlan0,
+  ssid: ssid,
+  key_mgmt: :"WPA-PSK",
+  psk: psk
+
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 # Uncomment to use target specific configurations
 
 # import_config "#{Mix.Project.config[:target]}.exs"
-
-# Change these options to your
-config :hello_wifi, :wlan0,
-  ssid: "my_accesspoint_name",
-  key_mgmt: :"WPA-PSK",
-  psk: "secretsecret"
